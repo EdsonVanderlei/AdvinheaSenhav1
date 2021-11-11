@@ -9,11 +9,13 @@ public class App {
         String AleatorioString;
         int cod = 1;
         int digito;
+        int qtd;
         int Acerto = 0;
         boolean erro = false;
         int chances;
         String Correto = "";
         String digitoString = "";
+        Object[] dificuldade = {"Facil", "Normal", "Dificil"};
         ImageIcon dab = new ImageIcon("Projeto class/src/download.jpg");
         JOptionPane.showMessageDialog(null, "", "By Edson Vanderlei", JOptionPane.INFORMATION_MESSAGE, dab);
 
@@ -23,13 +25,9 @@ public class App {
                             "CHANCES", JOptionPane.INFORMATION_MESSAGE));
             chances = c1.Chances(chances);
         } while (chances == -2);
-        while (cod == 1) {
-            cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a Quantidade de Digitos: ",
-                    "Digite de 4 a 6", JOptionPane.DEFAULT_OPTION));
-
-            cod = c1.GerarCodigo(cod, cod);
+            qtd = JOptionPane.showOptionDialog(null,"Selecione um nivel de dificuldade :","AdvinheaSenha",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,dificuldade,dificuldade[2]);
+            cod = c1.GerarCodigo(cod, qtd);
             System.out.println(cod);
-        }
         AleatorioString = Integer.toString(cod);
         String[] acertos = new String[AleatorioString.length()];
         int[] digitada = new int[AleatorioString.length()];

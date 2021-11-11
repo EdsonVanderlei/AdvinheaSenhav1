@@ -26,27 +26,19 @@ public class Jogo {
     }
 
     public int GerarCodigo(int cod, int qtd) {
-
-        if (qtd == 4) {
+        if (qtd == 0) {
             cod = (int) Math.round(Math.random() * 9999);
             digito = Integer.toString(cod);
             digiton = 4;
-            return cod;
-        } else if (qtd == 5) {
+        } else if (qtd == 1) {
             cod = (int) Math.round(Math.random() * 99999);
             digito = Integer.toString(cod);
             digiton = 5;
-            ;
-            return cod;
-        } else if (qtd == 6) {
+        } else{
             cod = (int) Math.round(Math.random() * 999999);
             digiton = 6;
-            return cod;
-        } else {
-            JOptionPane.showMessageDialog(null, "Valor Inválido", "ERROR", JOptionPane.ERROR_MESSAGE);
-            return 1;
-        }
-
+        } 
+        return cod;
     }
 
     public int[] GuardarCodigo(int[] aleatorio, int cod) {
